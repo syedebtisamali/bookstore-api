@@ -1,10 +1,13 @@
 import os
+import certifi
 from flask import Flask, request, jsonify
+from flask_cors import CORS  # Import CORS
 from pymongo import MongoClient, ReturnDocument
 from bson import ObjectId
 from bson.errors import InvalidId
 
 app = Flask(__name__)
+CORS(app)
 
 # Connection string using Environment Variable for safety
 URI = os.getenv("MONGO_URI", "mongodb+srv://syedebtisamali:SEAPASS@sea-db.2biflg3.mongodb.net/?appName=SEA-DB")
